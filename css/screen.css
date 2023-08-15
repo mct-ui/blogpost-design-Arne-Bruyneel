@@ -7,6 +7,20 @@
 /*---------------------------------------/*
  # GENERIC
 /*---------------------------------------*/
+@font-face {
+  font-family: "Inter Web";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("../fonts/Inter-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter Web";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("../fonts/Inter-Bold.woff2") format("woff2");
+}
 *,
 *:before,
 *:after {
@@ -36,9 +50,11 @@ img {
 html {
   font-size: 100%;
   line-height: 1.5;
-  font-family: Helvetica, arial, sans-serif;
+  font-family: "droid-serif", Helvetica, arial, sans-serif;
   color: hsl(198.0786026201, 10%, 30%);
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /*
@@ -58,11 +74,22 @@ html {
     ---
     Default markup for typographic elements
 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inter Web", Times, serif;
+  color: hsl(198.0786026201, 10%, 10%);
+}
+
 h1 {
   font-size: 1.8020324707rem;
   font-weight: 700;
   line-height: 2rem;
   margin-bottom: 1.5rem;
+  font-family: "Playfair Display", serif;
 }
 
 h2 {
@@ -312,9 +339,80 @@ a:active {
 /*
     Components: Author
 */
+.c-author {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+@media (min-width: 62.0625em) {
+  .c-author {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+.c-author__image {
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+}
+
+.c-author__name,
+.c-author__meta {
+  margin-bottom: 0;
+}
+
+.c-author__meta {
+  font-size: 0.8888888889rem;
+  font-family: "Inter Web", Times, serif;
+  line-height: 1.5rem;
+  margin-top: 0.25rem;
+}
+
+.c-author__name {
+  font-size: 1rem;
+  line-height: 0.25rem;
+}
+
+/*
+    Components: Article
+*/
+.c-article__header,
+.c-article__body {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (min-width: 48.0625em) {
+  .c-article__header,
+  .c-article__body {
+    padding: 3rem 3rem 2rem;
+  }
+}
+
+.c-article__header {
+  padding: 1.5rem 1.5rem 0;
+}
+
+.c-article__body {
+  padding: 0 1.5rem;
+}
+@media (min-width: 48.0625em) {
+  .c-article__body {
+    padding: 3rem 3rem 2rem;
+  }
+}
+
 /*
     Components: Quote
 */
+.c-quote {
+  margin: 48px -26px;
+  padding: 24px;
+  color: hsl(161.9213973799, 100%, 35%);
+  background-color: hsl(161.9213973799, 90%, 95%);
+}
+
 /*
     Component: layout block
     ---
@@ -337,6 +435,10 @@ a:active {
     Scope: Content
     Specific behaviour inside s-content class
 */
+.s-content * + h2 {
+  margin-top: 3rem;
+}
+
 /*---------------------------------------/*
  # UTILITIES
 /*---------------------------------------*/
